@@ -38,7 +38,7 @@ export async function update(note: Note) {
 export async function purge(id: number) {
 
     return new Promise<any>( (resolve, reject) => {
-        conn.query(`DELETE note WHERE id = ${id}`, (err, data) => {
+        conn.query(`DELETE FROM note WHERE id = ${id}`, (err, data) => {
             if (err) return reject(err);
             resolve(data);
         })
