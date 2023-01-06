@@ -29,13 +29,17 @@ exports.getNotesController = getNotesController;
 function addNoteController(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const body = req.body;
+        console.log(body);
         yield (0, note_service_1.addNote)(body)
             .then(data => {
+            console.log("hola");
             return res.status(200).json({
                 data
             });
         })
             .catch(err => {
+            console.log("hola");
+            console.log(err);
             return res.status(400).send(err.message);
         });
     });

@@ -12,4 +12,13 @@ pool.connect()
     console.log(err);
 });
 
+pool.on('error', () => {
+    pool.connect()
+    .then(() =>{
+        console.log("database reconnected");
+    })
+    .catch(err => {
+        console.log(err);
+    });
+});
 export default pool;

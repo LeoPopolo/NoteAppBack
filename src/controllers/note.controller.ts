@@ -17,14 +17,17 @@ export async function getNotesController(req: Request, res: Response) {
 export async function addNoteController(req: Request, res: Response) {
 
     const body = req.body;
-
+    
     await addNote(body)
     .then(data => {
+        console.log("hola");
         return res.status(200).json({
             data
         });
     })
     .catch(err => {
+        console.log("hola");
+        console.log(err);
         return res.status(400).send(err.message);
     });
 };

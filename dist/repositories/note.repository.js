@@ -56,7 +56,7 @@ exports.update = update;
 function purge(id) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => {
-            database_1.default.query(`DELETE note WHERE id = ${id}`, (err, data) => {
+            database_1.default.query(`DELETE FROM note WHERE id = ${id}`, (err, data) => {
                 if (err)
                     return reject(err);
                 resolve(data);
