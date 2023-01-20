@@ -15,7 +15,7 @@ export async function create(note: Note) {
 export async function get() {
 
     return new Promise<Note[]>( (resolve, reject) => {
-        conn.query(`SELECT * FROM note`, (err, data) => {
+        conn.query(`SELECT * FROM note ORDER BY creation DESC`, (err, data) => {
             if (err) return reject(err);
             resolve(data.rows);
         })
